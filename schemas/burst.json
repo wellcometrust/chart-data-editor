@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Burst Chart",
+  "description": "Creates a labelled burst chart",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Chart ID",
+      "description": "Identifies the chart in the document. Cannot contain spaces or special characters. Example: Chart description - 'Funding by area'; Chart ID - 'funding-area'"
+    },
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'burst'",
+      "default": "burst"
+    },
+    "desc": {
+      "type": "string",
+      "title": "Description",
+      "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "This is a list of items, each representing a single segment in the burst chart.",
+      "items": {
+        "type": "object",
+        "title": "Segment",
+        "description": "A segment of the burst chart showing a single value.",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Segment title",
+            "description": "What this value represents"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "description": "Numeric value to display"
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the number, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the number, e.g. units or % sign"
+          },
+          "color": {
+            "type": "string",
+            "format": "color",
+            "title": "Segment color",
+            "description": "(should be different for each segment)",
+            "default": "#000000"
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "color"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "desc",
+    "value"
+  ]
+}
