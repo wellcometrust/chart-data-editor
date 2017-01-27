@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "title": "Burst Chart",
-  "description": "Creates a labelled burst chart",
+  "title": "Figure chart (Gender)",
+  "description": "Creates a figure graphic showing a ratio of different categories, e.g. genders",
   "properties": {
     "title": {
       "type": "string",
@@ -12,8 +12,11 @@
     "type": {
       "type": "string",
       "title": "Chart type",
-      "description": "Must be 'burst'",
-      "default": "burst"
+      "description": "Must be 'figure-gender'",
+      "default": "figure-gender",
+      "options": {
+        "hidden": true
+      }
     },
     "desc": {
       "type": "string",
@@ -23,15 +26,16 @@
     "value": {
       "type": "array",
       "title": "Chart data",
-      "description": "This is a list of items, each representing a single segment in the burst chart.",
+      "description": "This is a list of items adding up to a whole, each representing a segment of the figure.",
       "items": {
         "type": "object",
         "title": "Segment",
-        "description": "A segment of the burst chart showing a single value.",
+        "headerTemplate": "{{ self.title }}",
+        "description": "A segment in the figure showing a single value.",
         "properties": {
           "title": {
             "type": "string",
-            "title": "Segment title",
+            "title": "Title",
             "description": "What this value represents"
           },
           "value": {
@@ -53,7 +57,7 @@
             "type": "string",
             "format": "color",
             "title": "Segment color",
-            "description": "(should be different for each segment)",
+            "description": "(can be either the same for all bars or different for each)",
             "default": "#000000"
           }
         },
@@ -63,12 +67,47 @@
           "color"
         ]
       }
+    },
+    "auxiliary": {
+      "type": "object",
+      "title": "Auxiliary dataset",
+      "description": "An additional list of values that appears as a segmented vertical line next to the figure",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Dataset title",
+          "description": "Label of the whole aux dataset."
+        },
+        "prefix": {
+          "type": "string",
+          "title": "Prefix",
+          "description": "The text to put in front of the numbers, e.g. currency sign."
+        },
+        "suffix": {
+          "type": "string",
+          "title": "Suffix",
+          "description": "The text to put after the numbers, e.g. units or % sign"
+        },
+        "value": {
+          "type": "array",
+          "title": "Dataset values",
+          "description": "A list of numerical values.",
+          "items": {
+            "type": "number",
+            "title": "Value",
+            "description": ""
+          }
+        }
+      },
+      "required": [
+        "title",
+        "value"
+      ]
     }
   },
   "required": [
     "title",
     "type",
-    "desc",
     "value"
   ]
 }

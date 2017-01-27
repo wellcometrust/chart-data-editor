@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Figures chart",
+  "description": "This chart shows a field of figures coloured by category. It's suitable to display smaller sets of proportional data, e.g. demographics of a group of people.",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Chart ID",
+      "description": "Identifies the chart in the document. Cannot contain spaces or special characters. Example: Chart description - 'Funding by area'; Chart ID - 'funding-area'"
+    },
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'figures'",
+      "default": "figures",
+      "options": {
+        "hidden": true
+      }
+    },
+    "desc": {
+      "type": "string",
+      "title": "Description",
+      "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "A list of items, each representing a portion of the figures",
+      "items": {
+        "type": "object",
+        "title": "Portion",
+        "description": "A portion of the figures showing a part of a whole",
+        "headerTemplate": "{{ self.title }}",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "What this portion represents"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "description": "Numeric value to display"
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the number, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the number, e.g. units or % sign"
+          },
+          "color": {
+            "type": "string",
+            "format": "color",
+            "title": "Portion color",
+            "description": "(should be different for each portion)",
+            "default": "#000000"
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "color"
+        ]
+      }
+    }
+  },
+  "required": [
+    "title",
+    "desc",
+    "type",
+    "value"
+  ]
+}

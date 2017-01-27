@@ -31,7 +31,7 @@ const loadChartBuilder = chartType => {
   editorHolder.innerHTML = '';
   // load schemas
   const xhr = new window.XMLHttpRequest();
-  xhr.open('GET', `/schemas/${chartType}.json`, true);
+  xhr.open('GET', `/schemae/${chartType}.schema.json`, true);
 
   xhr.addEventListener('load', e => {
     // try catch in case the JSON doesn't parse

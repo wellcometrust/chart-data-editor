@@ -8,7 +8,10 @@
       "type": "string",
       "title": "Chart type",
       "description": "Must be 'number'",
-      "default": "number"
+      "default": "number",
+      "options": {
+        "hidden": true
+      }
     },
     "value": {
       "type": "array",
@@ -18,6 +21,7 @@
         "type": "object",
         "title": "Stats box",
         "description": "This represents a single stats box within the group",
+        "headerTemplate": "{{ self.title }}",
         "properties": {
           "title": {
             "type": "string",

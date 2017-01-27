@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "title": "Line Chart",
-  "description": "A line chart which can show multiple datasets as coloured lines.",
+  "description": "A line chart which can show multiple datasets as coloured lines. This chart is suitable for large datasets.",
   "properties": {
     "title": {
       "type": "string",
@@ -13,7 +13,10 @@
       "type": "string",
       "title": "Chart type",
       "description": "Must be 'line'",
-      "default": "line"
+      "default": "line",
+      "options": {
+        "hidden": true
+      }
     },
     "desc": {
       "type": "string",
@@ -95,6 +98,7 @@
         "type": "object",
         "title": "Dataset",
         "description": "A set of data developing over the specified categories (e.g. points in time)",
+        "headerTemplate": "{{ self.title }}",
         "properties": {
           "title": {
             "type": "string",
@@ -135,6 +139,33 @@
           "color"
         ]
       }
+    }
+  },
+  "legend": {
+    "type": "array",
+    "title": "Legend [optional]",
+    "description": "The legend (key) of the chart. Will show under the chart normally, and next to it in expanded mode. Some charts will generate their keys automatically, this allows us to override them.",
+    "items": {
+      "type": "object",
+      "title": "Legend item",
+      "description": "",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Label",
+          "description": ""
+        },
+        "color": {
+          "type": "string",
+          "title": "Color",
+          "format": "color",
+          "description": ""
+        }
+      },
+      "required": [
+        "title",
+        "color"
+      ]
     }
   },
   "required": [
