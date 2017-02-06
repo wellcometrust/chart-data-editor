@@ -4,6 +4,9 @@ dependencies:
 compile:
   override:
     - mkdir dist && npm run build
+test:
+  override:
+    - echo "Yo circleci, how about not runnin' no tests?"
 deployment:
   master:
     branch: master
