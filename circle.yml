@@ -1,0 +1,12 @@
+dependencies:
+  override:
+    - npm install
+compile:
+  override:
+    - mkdir dist && npm run build
+deployment:
+  master:
+    branch: master
+    owner: circleci
+    commands:
+      - npm run deploy
