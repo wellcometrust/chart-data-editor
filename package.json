@@ -4,7 +4,7 @@
   "description": "Web tool to create JSON data for Wellcome dynamic charts",
   "main": "index.js",
   "scripts": {
-    "deploy": "webpack && aws s3 sync . s3://chart-data-editor.wellcome-s3.org/ --region=eu-west-2 --acl public-read --exclude 'node_modules/*' --exclude 'js/*' --exclude '.gitignore' --exclude '.eslintrc.json' --exclude 'package.json' --exclude 'webpack.config.js' --exclude 'README.md' --exclude '.DS_Store' --delete",
+    "deploy": "webpack && aws s3 sync . s3://chart-data-editor.wellcome-s3.org/ --region=eu-west-2 --acl public-read --exclude 'node_modules/*' --exclude 'js/*' --exclude '.gitignore' --exclude '.eslintrc.json' --exclude 'package.json' --exclude 'webpack.config.js' --exclude 'README.md' --exclude '.DS_Store' --exclude '.git' --delete",
     "build": "webpack",
     "watch": "webpack --watch"
   },
