@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Stretched bar chart",
+  "description": "Creates a bar chart that shows the ratios of two values in each category",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Chart ID",
+      "description": "Identifies the chart in the document. Cannot contain spaces or special characters. Example: Chart description - 'Funding by area'; Chart ID - 'funding-area'"
+    },
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'bar-stretch'",
+      "default": "bar-stretch",
+      "options": {
+        "hidden": true
+      }
+    },
+    "desc": {
+      "type": "string",
+      "title": "Description",
+      "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "This is a list of items, each representing a pair of bars in the bar chart.",
+      "items": {
+        "type": "object",
+        "title": "Bar pair",
+        "description": "A pair of bars, showing a ratio of two values in the same category.",
+        "headerTemplate": "{{ self.title }}",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Category title",
+            "description": "This is the x-axis label of the bar pair."
+          },
+          "value": {
+            "type": "array",
+            "title": "Values",
+            "description": "A list of two values adding up to a whole",
+            "maxItems": 2,
+            "items": {
+              "type": "number",
+              "title": "Value",
+              "description": "Numerical value to display"
+            }
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the numbers, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the numbers, e.g. units or % sign"
+          },
+          "color": {
+            "type": "array",
+            "title": "Colors",
+            "description": "List of bar colors, must be in the same order as the numbers.",
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "title": "Color",
+              "format": "color",
+              "description": "",
+              "default": "#000000"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "color"
+        ]
+      }
+    },
+    "auxiliary": {
+      "type": "object",
+      "title": "Auxiliary dataset",
+      "description": "An additional list of values that appears as a segmented line over the bar chart.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Dataset title",
+          "description": "Label of the whole aux dataset."
+        },
+        "color": {
+          "type": "string",
+          "title": "Line color",
+          "format": "color",
+          "description": "",
+          "default": "#000000"
+        },
+        "prefix": {
+          "type": "string",
+          "title": "Prefix",
+          "description": "The text to put in front of the numbers, e.g. currency sign."
+        },
+        "suffix": {
+          "type": "string",
+          "title": "Suffix",
+          "description": "The text to put after the numbers, e.g. units or % sign"
+        },
+        "value": {
+          "type": "array",
+          "title": "Dataset values",
+          "description": "A list of numerical values.",
+          "items": {
+            "type": "number",
+            "title": "Value",
+            "description": ""
+          }
+        }
+      },
+      "required": [
+        "title",
+        "color",
+        "value"
+      ]
+    },
+    "legend": {
+      "type": "array",
+      "title": "Legend [optional]",
+      "description": "The legend (key) of the chart. Will show under the chart normally, and next to it in expanded mode. Some charts will generate their keys automatically, this allows us to override them.",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "title": "Legend item",
+        "description": "",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Label",
+            "description": ""
+          },
+          "color": {
+            "type": "string",
+            "title": "Color",
+            "format": "color",
+            "description": ""
+          }
+        },
+        "required": [
+          "title",
+          "color"
+        ]
+      }
+    }
+  },
+  "required": [
+    "desc",
+    "title",
+    "type",
+    "value"
+  ]
+}

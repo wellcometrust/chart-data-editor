@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Line Chart",
+  "description": "A line chart which can show multiple datasets as coloured lines. This chart is suitable for large datasets.",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Chart ID",
+      "description": "Identifies the chart in the document. Cannot contain spaces or special characters. Example: Chart description - 'Funding by area'; Chart ID - 'funding-area'"
+    },
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'line'",
+      "default": "line",
+      "options": {
+        "hidden": true
+      }
+    },
+    "desc": {
+      "type": "string",
+      "title": "Description",
+      "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
+    },
+    "chartHeight": {
+      "type": "number",
+      "title": "Chart height",
+      "description": "Height of the chart as percentage of its width (i.e. 120 will make the chart taller than it's wide)",
+      "default": 80
+    },
+    "range": {
+      "type": "number",
+      "title": "Data range",
+      "description": "[optional] the maximum value shown by the gridlines of the chart. Defaults to the maximum value in the dataset."
+    },
+    "gridLinesCount": {
+      "type": "number",
+      "title": "Number of gridlines",
+      "format": "number",
+      "description": "Number of horizontal grid lines with matching y-axis labels.",
+      "default": 5
+    },
+    "fontSize": {
+      "type": "number",
+      "title": "Labels font size",
+      "format": "number",
+      "description": "Affects all labels including the axis labels.",
+      "default": 2.5
+    },
+    "gridLinesLabelColor": {
+      "type": "string",
+      "title": "Axis label colour",
+      "format": "color",
+      "description": "Doesn't apply to data labels",
+      "default": "rgba(0,0,0,0.3)"
+    },
+    "categories": {
+      "type": "array",
+      "title": "Categories list",
+      "description": "This should be of the same length as the value array in each dataset",
+      "items": {
+        "type": "string",
+        "title": "Category label",
+        "description": "(some of these may be automatically omitted in large datasets to make more space)"
+      }
+    },
+    "style": {
+      "type": "object",
+      "title": "Style options",
+      "description": "These options set label positioning and style.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title style",
+          "description": "Bubble draws a circle under the label, plain draws just the label.",
+          "default": "bubble",
+          "enum": ["bubble", "plain"]
+        },
+        "number": {
+          "type": "string",
+          "title": "Number style",
+          "description": "Inside draws the label on top of the line, Outside draws it above the line.",
+          "default": "inside",
+          "enum": ["outside", "inside"]
+        }
+      },
+      "required": [
+        "title",
+        "number"
+      ]
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "A list of datasets, each containing a list of values of the same length",
+      "items": {
+        "type": "object",
+        "title": "Dataset",
+        "description": "A set of data developing over the specified categories (e.g. points in time)",
+        "headerTemplate": "{{ self.title }}",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Dataset title",
+            "description": "Describes what this dataset shows."
+          },
+          "value": {
+            "type": "array",
+            "title": "Values",
+            "description": "A list of values in the dataset",
+            "items": {
+              "type": "number",
+              "title": "Value",
+              "description": "Numerical value for the corresponding category"
+            }
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the values, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the values, e.g. units or % sign"
+          },
+          "color": {
+            "type": "string",
+            "format": "color",
+            "title": "Line color",
+            "description": "(should be different for each dataset)",
+            "default": "#000000"
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "color"
+        ]
+      }
+    }
+  },
+  "legend": {
+    "type": "array",
+    "title": "Legend [optional]",
+    "description": "The legend (key) of the chart. Will show under the chart normally, and next to it in expanded mode. Some charts will generate their keys automatically, this allows us to override them.",
+    "items": {
+      "type": "object",
+      "title": "Legend item",
+      "description": "",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Label",
+          "description": ""
+        },
+        "color": {
+          "type": "string",
+          "title": "Color",
+          "format": "color",
+          "description": ""
+        }
+      },
+      "required": [
+        "title",
+        "color"
+      ]
+    }
+  },
+  "required": [
+    "desc",
+    "title",
+    "type",
+    "categories",
+    "style",
+    "value"
+  ]
+}

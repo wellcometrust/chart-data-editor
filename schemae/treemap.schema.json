@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Treemap chart",
+  "description": "This chart shows data as a squarified treemap (tile chart)",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Chart ID",
+      "description": "Identifies the chart in the document. Cannot contain spaces or special characters. Example: Chart description - 'Funding by area'; Chart ID - 'funding-area'"
+    },
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'treemap'",
+      "default": "treemap",
+      "options": {
+        "hidden": true
+      }
+    },
+    "desc": {
+      "type": "string",
+      "title": "Description",
+      "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "This is a list of items, each representing a single tile in the treemap.",
+      "items": {
+        "type": "object",
+        "title": "Tile",
+        "description": "A tile in the treemap showing a single value.",
+        "headerTemplate": "{{ self.title }}",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "What this value represents"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "description": "Numeric value to display"
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the number, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the number, e.g. units or % sign"
+          },
+          "color": {
+            "type": "string",
+            "format": "color",
+            "title": "Tile color",
+            "description": "(can be either the same for all tiles or different for each)",
+            "default": "#000000"
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "color"
+        ]
+      }
+    }
+  },
+  "legend": {
+    "type": "array",
+    "title": "Legend [optional]",
+    "description": "The legend (key) of the chart. Will show under the chart normally, and next to it in expanded mode. Some charts will generate their keys automatically, this allows us to override them.",
+    "items": {
+      "type": "object",
+      "title": "Legend item",
+      "description": "",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Label",
+          "description": ""
+        },
+        "color": {
+          "type": "string",
+          "title": "Color",
+          "format": "color",
+          "description": ""
+        }
+      },
+      "required": [
+        "title",
+        "color"
+      ]
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "value"
+  ]
+}

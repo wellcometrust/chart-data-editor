@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>Chart Data Editor | Wellcome</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="title" content="Wellcome Chart Data Editor" />
+		<meta name="description" content="Web tool to create JSON data for Wellcome dynamic charts" />
+		<meta name="keywords" content="wellcome, data visualization, json" />
+		<meta name="author" content="Wellcome" />
+    <link rel="stylesheet" type="text/css" href="/css/site.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/specific.css">
+    <link rel="stylesheet" href="/css/monokai-sublime.css">
+    <script defer src="/dist/bundle.js"></script>
+	</head>
+	<body>
+    <header class="wt-grid-full top-level-page__heading">
+      <div class="wt-grid-main wt-grid-content-main">
+        <div class="wt-grid-left top-level-page__margin"></div>
+        <div class="wt-grid-center wt-grid-section-center top-level-page__title">
+          <h1>Chart Data Editor</h1>
+        </div>
+      </div>
+    </header>
+
+    <main role="main" class="wt-grid-main wt-grid-content-main">
+      <div class="wt-grid-left wt-grid-section-left">
+      </div>
+
+      <div class="wt-grid-center wt-grid-section-center">
+        <h3>Choose a chart type</h3>
+        <select id="chart-type">
+          <option value="" selected disabled>Choose a chart type</option>
+          <option value="bar-simple">bar-simple</option>
+          <option value="burst">burst</option>
+          <option value="line">line</option>
+          <option value="bar-double">bar-double</option>
+          <option value="bar-stacked">bar-stacked</option>
+          <option value="bar-stretch">bar-stretch</option>
+          <option value="pie-stacked">pie-stacked</option>
+          <option value="figures">figures</option>
+          <option value="figure-gender">figure-gender</option>
+          <option value="number">number</option>
+        </select>
+
+        <div class="editor-wrapper">
+          <hr>
+          <span class="csv-input__label">Import CSV data</span>
+          <p><input id="csv-input" type="file" value="Import CSV data" accept="text/csv"/></p>
+          <p><strong>OR</strong></p>
+          <p class="json-input__label">Edit existing JSON</p>
+          <textarea id="json-input"></textarea>
+          <button id="json-input-btn">Insert</button>
+          <hr>
+          <div id="editor-holder"></div>
+        </div>
+
+        <div id="clippy-message" class="clippy-message">JSON Copied to clipboard</div>
+      </div>
+
+      <div class="wt-grid-right wt-grid-section-right">
+        <section class="promo output-container">
+          <h3>Output:</h3>
+          <pre class="output-wrapper"><button class="clippy js-clippy" data-clipboard-target="#output">Copy</button><code id="output" class="lang-json"></code></pre>
+        </section>
+
+        <figure class="promo screenshot-wrapper">
+          <h3>Example:</h3>
+          <img id="screenshot" src="" />
+        </figure>
+      </div>
+    </main>
+
+    <footer class="site-footer__foot-wrapper wt-grid-full">
+      <p class="site-footer__message">
+      <img class="footer__logo" src="http://explorify.wellcome.ac.uk/assets/images/w-square.png" alt="Wellcome Trust">
+      Created by <a href="https://wellcome.ac.uk/">Wellcome</a>. Based on <a href="https://github.com/jdorn/json-editor">JSON Editor</a> by Jeremy Dorn. Code available on <a href="https://github.com/wellcometrust/chart-data-editor">GitHub</a>.
+      </p>
+      <div class="site-footer__foot wt-grid-main" role="presentation">
+      </div>
+    </footer>
+	</body>
+</html>

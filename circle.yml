@@ -1,0 +1,15 @@
+dependencies:
+  override:
+    - npm install
+compile:
+  override:
+    - mkdir dist && npm run build
+test:
+  override:
+    - echo "Yo circleci, how about not runnin' no tests?"
+deployment:
+  master:
+    branch: master
+    owner: circleci
+    commands:
+      - npm run deploy

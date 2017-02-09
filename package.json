@@ -1,0 +1,28 @@
+{
+  "name": "wellcome-chart-data-editor",
+  "version": "1.0.0",
+  "description": "Web tool to create JSON data for Wellcome dynamic charts",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "webpack && aws s3 sync . s3://chart-data-editor.wellcome-s3.org/ --region=eu-west-2 --acl public-read --exclude 'node_modules/*' --exclude 'js/*' --exclude '.gitignore' --exclude '.eslintrc.json' --exclude 'package.json' --exclude 'webpack.config.js' --exclude 'README.md' --exclude '.DS_Store' --exclude '.git' --delete",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "Wellcome",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-loader": "^6.2.10",
+    "babel-preset-latest": "^6.22.0",
+    "clipboard": "^1.5.16",
+    "d3-path": "^1.0.3",
+    "eslint": "^3.14.1",
+    "eslint-config-wellcome": "^1.0.8",
+    "eslint-loader": "^1.6.1",
+    "highlight.js": "^9.9.0",
+    "json-editor": "^0.7.28",
+    "papaparse": "^4.1.3",
+    "webpack": "^1.14.0",
+    "yo-yo": "^1.4.0"
+  }
+}

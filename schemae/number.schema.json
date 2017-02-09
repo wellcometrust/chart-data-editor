@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Number",
+  "description": "Displays a group of boxed-out numeric stats with a count-up animation",
+  "properties": {
+    "type": {
+      "type": "string",
+      "title": "Chart type",
+      "description": "Must be 'number'",
+      "default": "number",
+      "options": {
+        "hidden": true
+      }
+    },
+    "value": {
+      "type": "array",
+      "title": "Chart data",
+      "description": "This is a list of items, each representing a single stats box",
+      "items": {
+        "type": "object",
+        "title": "Stats box",
+        "description": "This represents a single stats box within the group",
+        "headerTemplate": "{{ self.title }}",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Describes what the stat represents, e.g. 'Grants awarded'. Shows below the number."
+          },
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "description": "Numeric value to display"
+          },
+          "start": {
+            "type": "number",
+            "title": "Animation start value",
+            "description": "This is the initial value the count-up animation will start counting from."
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "description": "The text to put in front of the number, e.g. currency sign."
+          },
+          "suffix": {
+            "type": "string",
+            "title": "Suffix",
+            "description": "The text to put after the number, e.g. units or % sign"
+          }
+        },
+        "required": [
+          "title",
+          "value",
+          "start"
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "value"
+  ]
+}

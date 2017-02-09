@@ -1,0 +1,155 @@
+main.wt-grid-main {
+  min-height: 75vh;
+  margin-bottom: 1em;
+}
+
+input[type="text"] {
+  margin-bottom: 5px;
+}
+
+input[type="color"] {
+  display: block;
+  width: 100%;
+  height: 2em;
+}
+
+hr {
+  height: 0;
+  border: none;
+  border-top: solid 1px #ddd;
+  margin: 1em 0;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.textarea--invalid {
+  border-color: red;
+}
+
+[data-schematype] {
+  padding: 7px 13px 0px 13px;
+}
+
+[data-schemaid="root"] {
+  padding: 0;
+}
+
+[data-schematype="array"] > h3 {
+  background: #eee;
+  padding: 0.4em;
+}
+
+button, button[type="button"] {
+  display: inline-block;
+  font-size: 14px;
+  height: auto;
+  margin: 0 3px 0 0;
+  padding: 0.35em;
+  vertical-align: middle;
+}
+
+.json-editor-btn-collapse:before {
+  content: '\25be';
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.editor-wrapper {
+  display: none;
+}
+
+.editor-wrapper--visible {
+  display: block;
+}
+
+.output-wrapper {
+  max-height: 50vh;
+  max-width: 100%;
+  overflow: scroll;
+}
+
+.output-container {
+  display: none;
+  position: relative;
+}
+
+.output-container--visible {
+  display: block;
+}
+
+.screenshot-wrapper {
+  display: none;
+}
+
+.screenshot-wrapper--visible {
+  display: block;
+}
+
+.clippy {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.clippy-message {
+  background: dodgerblue;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+  color: white;
+  height: 50px;
+  left: 0;
+  padding: 0.6rem;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: -50px;
+  transition: top 600ms ease;
+}
+
+.clippy-message.is-shown {
+  top: 0;
+}
+
+img {
+  border: solid 1px #ddd;
+  margin: 5px 0 10px 0;
+  max-height: 50vh;
+}
+
+code {
+  font-size: 12px;
+}
+
+.site-footer__message {
+  background-color: white;
+  font-size: 14px;
+}
+
+.footer__logo {
+  border: none;
+  display: inline-block;
+  margin: 0 0.75em 0 0;
+  vertical-align: middle;
+  width: 3em;
+}
+
+.konami {
+  animation: woo 2s infinite;
+  transform: rotate(0deg);
+}
+
+@keyframes woo {
+  0% {
+    transform:
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
