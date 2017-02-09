@@ -23,6 +23,7 @@ const jsonInputBtn = document.getElementById('json-input-btn');
 
 // set up select list interaction
 const chartSelect = document.getElementById('chart-type');
+chartSelect.value = '';
 chartSelect.addEventListener('change', e => loadChartBuilder(e.target.value));
 
 /**
