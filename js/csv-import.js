@@ -16,9 +16,9 @@ const onParse = (csvInput, csvInputLabel, editor) => res => {
     // we assume the presence of column headers in the first row
     const firstRow = res.data[0];
     if (editor.getEditor('root.desc')) {
-      editor.setValue({
-        desc: firstRow.join(' | ')
-      });
+      const update = editor.getValue();
+      update['desc'] = firstRow.join(' | ');
+      editor.setValue(update);
     }
     // check if we need to fill out the categories array
     const categoriesEditor = editor.getEditor('root.categories');

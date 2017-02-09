@@ -10,7 +10,13 @@ const setupJSONImport = (textarea, button, editor) => {
   button.addEventListener('click', e => {
     try {
       const json = JSON.parse(textarea.value);
-      editor.setValue(json);
+      const combined = editor.getValue();
+
+      for (let prop in json) {
+        combined[prop] = json[prop];
+      }
+
+      editor.setValue(combined);
       textarea.classList.remove('textarea--invalid');
     } catch (e) {
       console.error('failed to parse JSON', e);
