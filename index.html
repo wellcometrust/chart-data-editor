@@ -48,8 +48,12 @@
 
         <div class="editor-wrapper">
           <hr>
-          <p class="csv-input__label">Import CSV data</p>
-          <input id="csv-input" type="file" value="Import CSV data" accept="text/csv"/>
+          <span class="csv-input__label">Import CSV data</span>
+          <p><input id="csv-input" type="file" value="Import CSV data" accept="text/csv"/></p>
+          <p><strong>OR</strong></p>
+          <p class="json-input__label">Edit existing JSON</p>
+          <textarea id="json-input"></textarea>
+          <button id="json-input-btn">Insert</button>
           <hr>
           <div id="editor-holder"></div>
         </div>

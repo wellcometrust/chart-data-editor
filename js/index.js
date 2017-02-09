@@ -2,6 +2,7 @@
 import 'json-editor';
 import hljs from 'highlight.js';
 import setupCSVImport from './csv-import.js';
+import setupJSONImport from './json-import.js';
 import konami from './konami.js';
 import setupClipboard from './setup-clipboard.js';
 
@@ -16,6 +17,9 @@ const output = document.getElementById('output');
 const outputContainer = document.querySelector('.output-container');
 const screenshot = document.getElementById('screenshot');
 const screenshotWrapper = document.querySelector('.screenshot-wrapper');
+
+const jsonInput = document.getElementById('json-input');
+const jsonInputBtn = document.getElementById('json-input-btn');
 
 // set up select list interaction
 const chartSelect = document.getElementById('chart-type');
@@ -44,6 +48,7 @@ const loadChartBuilder = chartType => {
 
       screenshot.src = `/images/${chartType}.screenshot.png`;
       setupCSVImport(csvInput, csvInputLabel, editor);
+      setupJSONImport(jsonInput, jsonInputBtn, editor);
 
       editor.on('change', e => {
         output.innerText = JSON.stringify(editor.getValue(), null, ' ');

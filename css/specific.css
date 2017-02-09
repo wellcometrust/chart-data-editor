@@ -24,6 +24,10 @@ hr {
   margin-bottom: 5px;
 }
 
+.textarea--invalid {
+  border-color: red;
+}
+
 [data-schematype] {
   padding: 7px 13px 0px 13px;
 }
