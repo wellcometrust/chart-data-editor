@@ -41,6 +41,11 @@
       "description": "Number of horizontal grid lines with matching y-axis labels.",
       "default": 5
     },
+    "yLabel": {
+      "type": "string",
+      "title": "Y-axis Label",
+      "description": "(optional) Appears on the left side of the chart"
+    },
     "fontSize": {
       "type": "number",
       "title": "Labels font size",
@@ -54,6 +59,13 @@
       "format": "color",
       "description": "Doesn't apply to data labels",
       "default": "rgba(0,0,0,0.3)"
+    },
+    "xLabelInterval": {
+      "type": "number",
+      "title": "X-axis label interval",
+      "format": "number",
+      "description": "(optional) For large datasets, this overrides the interval between displayed x-axis labels. For instance, if interval=5, then every 5th label is shown. If the value is 0, the interval will be chosen automatically (recommended).",
+      "default": 0
     },
     "categories": {
       "type": "array",
