@@ -23,6 +23,36 @@
       "title": "Description",
       "description": "Chart description (caption) explaining what the chart is showing. Will display as a heading before the chart graphic."
     },
+    "chartHeight": {
+      "type": "number",
+      "title": "Chart height",
+      "description": "Height of the chart as percentage of its width (i.e. 120 will make the chart taller than it's wide)",
+      "default": 80
+    },
+    "range": {
+      "type": "number",
+      "title": "Data range",
+      "description": "[optional] the maximum value shown by the gridlines of the chart. Defaults to the maximum value in the dataset."
+    },
+    "gridLinesCount": {
+      "type": "number",
+      "title": "Number of gridlines",
+      "format": "number",
+      "description": "Number of horizontal grid lines with matching y-axis labels.",
+      "default": 5
+    },
+    "yLabel": {
+      "type": "string",
+      "title": "Y-axis Label",
+      "description": "(optional) Appears on the left side of the chart"
+    },
+    "xLabelInterval": {
+      "type": "number",
+      "title": "X-axis label interval",
+      "format": "number",
+      "description": "(optional) For large datasets, this overrides the interval between displayed x-axis labels. For instance, if interval=5, then every 5th label is shown. If the value is 0, the interval will be chosen automatically (recommended).",
+      "default": 0
+    },
     "value": {
       "type": "array",
       "title": "Chart data",
