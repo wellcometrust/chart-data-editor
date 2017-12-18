@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "title": "Stretched bar chart",
+  "title": "Stacked bar chart",
   "description": "Creates a bar chart with multiple stacked bars in each category",
   "properties": {
     "title": {
