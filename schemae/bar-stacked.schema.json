@@ -137,6 +137,11 @@
             "title": "Value",
             "description": ""
           }
+        },
+        "labelBelow": {
+          "type": "boolean",
+          "title": "Numbers under line",
+          "description": "When enabled, number labels will display below the line. This helps with readability if two lines are too close to each other."
         }
       },
       "required": [
